@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-
+import ClientOnly from "./components/ClientOnly";
+import RegisterModal from "./components/modals/RegisterModal"
+import ToasterProvider from "./providers/ToasterProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,8 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-      
-     <Navbar></Navbar>
+      <ToasterProvider />
+      <ClientOnly>
+       <RegisterModal />
+        <Navbar />
+      </ClientOnly>
        {children}
       </body>
     </html>

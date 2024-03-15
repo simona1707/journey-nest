@@ -20,7 +20,6 @@ const Navbar = () => {
             md:gap-0
           "
         >
-    
      <Logo />
      <Search />
      <UserMenu />
