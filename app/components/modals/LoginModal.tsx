@@ -22,8 +22,8 @@ import Button from "../Button";
 
 const LoginModal = () => {
   const router = useRouter();
-  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const { 
