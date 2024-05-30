@@ -77,6 +77,8 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             </div>
         </div>
         <hr />
+        <Map center={coordinates} />
+        <hr />
         {category && (
             <ListingCategory
                 icon={category.icon}
@@ -90,7 +92,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             {description}
         </div>
         <hr />
-            <Map center={coordinates} />
+
     </div>
   )
 }

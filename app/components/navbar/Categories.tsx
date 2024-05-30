@@ -2,6 +2,9 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
+import { MdOutlineArrowBackIosNew,MdOutlineArrowForwardIos } from "react-icons/md";
+
+
 import { 
   GiBarn, 
   GiBoatFishing, 
@@ -12,18 +15,20 @@ import {
   GiIsland,
   GiWindmill
 } from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaSkiing } from 'react-icons/fa';
 import { BsSnow } from 'react-icons/bs';
 import { IoDiamond } from 'react-icons/io5';
 import { MdOutlineVilla } from 'react-icons/md';
+import { FaUmbrellaBeach } from "react-icons/fa";
 
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
+import { useState } from 'react';
 
 export const categories = [
     {
         label: 'Beach',
-        icon: TbBeach,
+        icon: FaUmbrellaBeach,
         description: 'This property is close to the beach!',
       },
       {
@@ -97,43 +102,62 @@ export const categories = [
         description: 'This property is brand new and luxurious!'
       }
 ]
-
 const Categories = () => {
+  const params = useSearchParams();
+  const category = params?.get('category');
+  const pathname = usePathname();
 
-    const params = useSearchParams();
-    const category = params?.get('category');
-    const pathname = usePathname();
+  const isMainPage = pathname == '/';
 
-    const isMainPage = pathname == '/';
+  const [currentPage, setCurrentPage] = useState(0);
+  const categoriesPerPage = 7;
 
-    if(!isMainPage) {
-        return null;
-    }
+  const startIndex = currentPage * categoriesPerPage;
+  const endIndex = startIndex + categoriesPerPage;
+
+  const totalPageCount = Math.ceil(categories.length / categoriesPerPage);
+
+  const goToPreviousPage = () => {
+      setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const goToNextPage = () => {
+      setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  if (!isMainPage) {
+      return null;
+  }
 
   return (
-    <Container>
-        <div 
-        className="
-            pt-4
-            flex
-            flex-row
-            items-center
-            justify-between
-            overflow-x-auto
-        "
-        >
-            {categories.map((item) => (
-                <CategoryBox
-                key={item.label}
-                label={item.label}
-                selected={category == item.label}
-                icon={item.icon}
-                />
-            ))}
-            
-        </div>
-    </Container>
+      <Container>
+          <div className="pt-4 flex items-center justify-center overflow-x-auto relative">
+              <MdOutlineArrowBackIosNew  size={25}
+                  className="cursor-pointer absolute left-0"
+                  onClick={goToPreviousPage}
+                  style={{ visibility: currentPage === 0 ? 'hidden' : 'visible' }}
+              />
+              <div className="flex items-center justify-center gap-20">
+                  {categories.slice(startIndex, endIndex).map((item) => (
+                      <CategoryBox
+                          key={item.label}
+                          label={item.label}
+                          selected={category == item.label}
+                          icon={item.icon}
+                      />
+                  ))}
+              </div>
+              <MdOutlineArrowForwardIos size={25}
+                  className="cursor-pointer absolute right-0"
+                  onClick={goToNextPage}
+                  style={{
+                      visibility: currentPage === totalPageCount - 1 ? 'hidden' : 'visible',
+                  }}
+              />
+          </div>
+          <hr className="mt-1 border-gray-300" /> {/* Черта под категориите */}
+      </Container>
   );
-}
+};
 
-export default Categories
+export default Categories;
