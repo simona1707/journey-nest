@@ -1,4 +1,6 @@
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiFillHome, AiOutlineMenu } from "react-icons/ai"; 
+import { BiCalendarHeart } from "react-icons/bi";
+import { MdOutlineAddHomeWork } from "react-icons/md";
 import { useCallback, useState } from "react";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
@@ -33,10 +35,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   }, [currentUser, loginModal, rentModal]);
 
   return (
-    <div className="relative">
+    <div className="relative user-menu">
       <div className="flex flex-row items-center gap-3">
-        <div onClick = {onRent} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
-          Your home
+        
+            <div onClick={() => router.push("/favorites")} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
+          <BiCalendarHeart size={25} />
+        </div>
+        <div onClick={onRent} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
+          <MdOutlineAddHomeWork size={25} />
         </div>
         <div
           onClick={toggleOpen}
@@ -55,7 +61,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem onClick={() => router.push("/trips")} label="My trips" />
                 <MenuItem onClick={() => router.push("/favorites")} label="My favorites" />
-                <MenuItem onClick={() =>  router.push("/reservations")} label="My reservations" />
+                <MenuItem onClick={() => router.push("/reservations")} label="My reservations" />
                 <MenuItem onClick={() => router.push("/properties")} label="My properties" />
                 <MenuItem onClick={rentModal.onOpen} label="Rent my home" />
                 <hr />
