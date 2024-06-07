@@ -91,11 +91,12 @@ const ListingCard: React.FC<ListingCardprops> = ({
             alt="Listing"
             src={data.imageSrc}
             className="
-                        object-cover
-                        h-full
-                        w-full
-                        group-hover:scale-110
-                        transition
+            object-cover
+            h-full
+            w-full
+            group-hover:scale-110
+            transition
+            z-0 
                     "
           />
           <div className="absolute top-3 right-3">

@@ -36,10 +36,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   }, [currentUser, loginModal, rentModal]);
 
   return (
-    <div className="relative user-menu">
+    
+    <div className="relative user-menu z-50">
       <div className="flex flex-row items-center gap-3">
-        
-            <div onClick={() => router.push("/favorites")} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
+        <div onClick={() => router.push("/favorites")} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
           <BiCalendarHeart size={25} />
         </div>
         <div onClick={onRent} className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
@@ -57,22 +57,21 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       </div>
       {isOpen && (
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
-          <div className="flex flex-col cursor-pointer">
+          <div className="flex flex-col cursor-pointer z-50">
             {currentUser ? (
               <>
                 <MenuItem onClick={() => router.push("/trips")} label="My Trips" icon={<FaSuitcase size={15} className="mr-2" />} />
                 <MenuItem onClick={() => router.push("/favorites")} label="My Favorites" icon={<FaHeart size={15} className="mr-2" />} />
                 <MenuItem onClick={() => router.push("/reservations")} label="My Reservations" icon={<FaClipboardList size={15} className="mr-2" />} />
                 <MenuItem onClick={() => router.push("/properties")} label="My Properties" icon={<FaBuilding size={15} className="mr-2" />} />
-                <MenuItem onClick={rentModal.onOpen} label="Rent My Home" icon={<MdOutlineAddHomeWork size={15} className="mr-2" />} />
+                <MenuItem onClick={rentModal.onOpen} label="Rent Out My Home" icon={<MdOutlineAddHomeWork size={15} className="mr-2" />} />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" icon={<FaSignOutAlt size={15} className="mr-2" />} />
               </>
             ) : (
               <>
-           <MenuItem onClick={loginModal.onOpen} label="Login" icon={<FaSignInAlt size={15} />} />
-            <MenuItem onClick={registerModal.onOpen} label="Sign up" icon={<FaUserPlus size={15} />} />
-
+                <MenuItem onClick={loginModal.onOpen} label="Login" icon={<FaSignInAlt size={15} className="mr-2" />} />
+                <MenuItem onClick={registerModal.onOpen} label="Sign up" icon={<FaUserPlus size={15} className="mr-2" />} />
               </>
             )}
           </div>

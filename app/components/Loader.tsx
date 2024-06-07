@@ -15,7 +15,7 @@ const Loader = () => {
     >
         <MoonLoader
             size={60}
-            color="crimson"
+            color="#327d81"
         />
     </div>
   )

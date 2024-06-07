@@ -120,7 +120,7 @@ const Search = () => {
         <div 
           className="
             p-2 
-            bg-black 
+            bg-[#327d81] 
             rounded-full 
             text-white 
             hover:bg-gray-800 
