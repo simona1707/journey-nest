@@ -21,16 +21,14 @@ body,
   font-size: 15px !important;
   width: 100% !important;
 }
-/* Стилове за менюто */
 .user-menu {
   position: relative;
-  z-index: 9999; /* Задайте висок z-index */
+  z-index: 99999999; 
 }
 
-/* Стилове за модалния прозорец */
 .modal {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 10000; /* Задайте още по-висок z-index */
+
 }

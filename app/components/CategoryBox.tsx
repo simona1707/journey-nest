@@ -1,4 +1,5 @@
 'use client'
+'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
@@ -45,8 +46,8 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
   return (
     <div
-    onClick={handleClick}
-    className={`
+      onClick={handleClick}
+      className={`
         flex
         flex-col
         items-center
@@ -54,20 +55,19 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         gap-2
         p-3
         border-b-2
-        hover:text-neutral-800
         transition
         cursor-pointer
         ${selected ? 'border-b-neutral-800' : 'border-transparent'}
         ${selected ? 'text-neutral-800' : 'text-neutral-500'}
-    `}
+        hover:text-white hover:bg-[#327d81]
+      `}
     >
-        <Icon size={26}/>
-        
-        <div className="font-medium text-sm">
+      <Icon size={26} />
+      <div className="font-medium text-sm">
         {label}
       </div>
     </div>
   )
 }
 
-export default CategoryBox
+export default CategoryBox;

@@ -155,7 +155,7 @@ const Categories = () => {
                   }}
               />
           </div>
-          <hr className="mt-1 border-gray-300" /> {/* Черта под категориите */}
+          <hr className="mt-1 border-gray-300" />
       </Container>
   );
 };

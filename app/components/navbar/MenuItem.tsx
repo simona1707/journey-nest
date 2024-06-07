@@ -21,7 +21,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
       transition
       font-semibold
       flex
-      items-center // Добавяме flex контейнер за центриране на иконката
+      items-center
+      
       "
     >
       {icon && <span className="mr-2">{icon}</span>} 
