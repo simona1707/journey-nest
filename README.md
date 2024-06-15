@@ -7,8 +7,7 @@ JourneyNest
 </h1>
 
 <h4 align="center">Vacation Rental Booking Platform </h4>
-
-[![snp.png](https://i.postimg.cc/g0nwJKFR/snp.png)]
+![snp.png](https://i.postimg.cc/g0nwJKFR/snp.png)]
 
 ## Technology Stack
 
