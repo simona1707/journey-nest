@@ -13,6 +13,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { BiCalendarHeart } from 'react-icons/bi';
 import { MdOutlineAddHomeWork } from 'react-icons/md';
 
+
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }

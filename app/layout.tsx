@@ -11,6 +11,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default async function RootLayout({
       <ClientOnly>
         <SearchModal/>
         <RentModal />
-      <LoginModal />     
+      <LoginModal />    
        <RegisterModal />     
         <Navbar currentUser={currentUser}/>
       </ClientOnly>
