@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="https://i.postimg.cc/tTGXjdX9/4.png" alt="JourneyNest" width="200"></a>
+  <a href=""><img src="https://i.postimg.cc/FRpwB0zW/icon.png" alt="JourneyNest" width="200"></a>
   <br>
 JourneyNest
   <br>
@@ -8,7 +8,7 @@ JourneyNest
 
 <h4 align="center">Vacation Rental Booking Platform </h4>
 
-[![snp.png](https://i.postimg.cc/g0nwJKFR/snp.png)](https://postimg.cc/VSPsZnNL)
+[![snp.png](https://i.postimg.cc/g0nwJKFR/snp.png)]
 
 ## Technology Stack
 
